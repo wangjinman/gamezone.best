@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Playing Game - GameZone</title>
+    <meta name="description" content="Play free HTML5 games online at GameZone! No downloads, no installs. Action, puzzle, racing and more.">
+    <meta name="robots" content="noindex, follow">
+    <meta name="google-site-verification" content="Bs-Qz9_WHTj0joycVSZZ78GpxAWXIDOVaXevH7TlIVE" />
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎮</text></svg>">
+    <!-- Open Graph (defaults, updated by JS per game) -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Play Free Games - GameZone">
+    <meta property="og:description" content="Play free HTML5 games online at GameZone! No downloads, no installs.">
+    <meta property="og:url" content="https://gamezone.best/game.html">
+    <meta property="og:site_name" content="GameZone">
+    <meta property="og:image" content="https://gamezone.best/og-image.png">
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Play Free Games - GameZone">
+    <meta name="twitter:description" content="Play free HTML5 games online at GameZone!">
+    <link rel="stylesheet" href="css/style.css">
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4380214325215724" crossorigin="anonymous"></script>
+    <!-- Google Analytics 4 -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-FK95RL7CRP"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-FK95RL7CRP');
+    </script>
+</head>
+<body>
+
+<!-- Header -->
+<header class="header">
+    <nav class="nav-container">
+        <a href="https://gamezone.best/index.html" class="logo">
+            <span class="logo-icon">🎮</span>
+            GameZone
+        </a>
+        <ul class="nav-links">
+            <li><a href="https://gamezone.best/index.html">Home</a></li>
+            <li><a href="https://gamezone.best/category.html?cat=action">Action</a></li>
+            <li><a href="https://gamezone.best/category.html?cat=puzzle">Puzzle</a></li>
+            <li><a href="https://gamezone.best/category.html?cat=racing">Racing</a></li>
+            <li><a href="https://gamezone.best/category.html?cat=casual">Casual</a></li>
+        </ul>
+        <div class="search-box">
+            <span class="search-icon">🔍</span>
+            <input type="text" placeholder="Search games..." aria-label="Search games">
+        </div>
+        <button class="menu-toggle" aria-label="Toggle menu">☰</button>
+    </nav>
+</header>
+
+<!-- Game Page -->
+<main class="game-page">
+    <!-- Game Header -->
+    <div class="game-page-header">
+        <h1 id="gameTitle">Loading...</h1>
+        <div class="game-page-meta" id="gameMeta">
+            <span>🎮 <span id="gamePlays">-</span></span>
+            <span>⭐ <span id="gameRating">-</span></span>
+            <span>📂 <span id="gameCategory">-</span></span>
+        </div>
+    </div>
+
+    <!-- Game Frame -->
+    <div class="game-frame-container" id="gameFrameContainer">
+        <div class="game-frame-loading" id="gameLoading">
+            <div class="spinner"></div>
+            <span>Loading game...</span>
+        </div>
+        <button class="fullscreen-btn" id="fullscreenBtn" title="Fullscreen" style="display:none;">⛶</button>
+    </div>
+
+    <!-- Game Info -->
+    <div class="game-page-info">
+        <!-- Description -->
+        <div class="game-description">
+            <h2>About This Game</h2>
+            <p id="gameDescription">Loading game description...</p>
+            <div style="margin-top: 20px;">
+                <a href="https://gamezone.best/index.html" class="play-btn" style="background: linear-gradient(135deg, #636e72, #2d3436);">← Back to Games</a>
+            </div>
+        </div>
+
+        <!-- Sidebar -->
+        <div class="game-sidebar">
+            <div class="sidebar-card">
+                <h3>🎮 More Games</h3>
+                <div id="moreGames">
+                    <!-- Populated by JS -->
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+
+<!-- Footer -->
+<footer class="footer">
+    <div class="footer-content">
+        <div class="footer-brand">
+            <h3>🎮 GameZone</h3>
+            <p>Play the best free HTML5 games online. No downloads, no installs. Just instant fun!</p>
+        </div>
+        <div class="footer-links">
+            <h4>Categories</h4>
+            <ul>
+                <li><a href="https://gamezone.best/category.html?cat=action">Action</a></li>
+                <li><a href="https://gamezone.best/category.html?cat=puzzle">Puzzle</a></li>
+                <li><a href="https://gamezone.best/category.html?cat=racing">Racing</a></li>
+                <li><a href="https://gamezone.best/category.html?cat=sports">Sports</a></li>
+            </ul>
+        </div>
+        <div class="footer-links">
+            <h4>More Games</h4>
+            <ul>
+                <li><a href="https://gamezone.best/category.html?cat=adventure">Adventure</a></li>
+                <li><a href="https://gamezone.best/category.html?cat=casual">Casual</a></li>
+                <li><a href="https://gamezone.best/category.html?cat=simulation">Simulation</a></li>
+                <li><a href="https://gamezone.best/category.html?cat=io">.io Games</a></li>
+            </ul>
+        </div>
+        <div class="footer-links">
+            <h4>Info</h4>
+            <ul>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="privacy.html">Privacy Policy</a></li>
+                <li><a href="terms.html">Terms of Service</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <p>&copy; 2026 GameZone. All rights reserved. Play free games online!</p>
+    </div>
+</footer>
+
+<!-- Scripts -->
+<script src="js/gamepix-api.js"></script>
+<script src="js/game-store.js"></script>
+<script src="js/ui.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', async () => {
+    UI.initMobileMenu();
+    UI.initSearch();
+
+    const params = new URLSearchParams(window.location.search);
+    const gameId = params.get('id');
+
+    if (!gameId) {
+        // Do NOT redirect - render a static page so Google can index this URL
+        document.title = 'Play Free Games - GameZone';
+        document.getElementById('gameTitle').textContent = 'Choose a Game to Play';
+        document.getElementById('gameDescription').textContent = 'Browse our collection of free HTML5 games. Click any game to start playing instantly!';
+        document.getElementById('gameLoading').innerHTML = `
+            <div style="text-align:center; padding: 40px 20px;">
+                <div style="font-size: 3rem; margin-bottom: 16px;">🎮</div>
+                <h3 style="color: var(--text-primary); margin-bottom: 12px;">Select a Game</h3>
+                <p style="color: var(--text-dim); margin-bottom: 24px;">No game selected. Browse below or go back to home.</p>
+                <a href="https://gamezone.best/index.html" class="play-btn">← Browse All Games</a>
+            </div>`;
+        return;
+    }
+
+    // Load enough games to find this game (load 5 pages up front)
+    for (let p = 1; p <= 5; p++) {
+        await GameStore.loadPage(p);
+        let g = GameStore.getById(gameId);
+        if (g) break;
+        if (!GameStore.getHasMore()) break;
+    }
+
+    let game = GameStore.getById(gameId);
+
+    // If still not found, try loading more pages
+    if (!game && GameStore.getHasMore()) {
+        for (let p = 2; p <= 5; p++) {
+            await GameStore.loadPage(p);
+            game = GameStore.getById(gameId);
+            if (game) break;
+            if (!GameStore.getHasMore()) break;
+        }
+    }
+
+    if (!game) {
+        // Game not found - show error
+        document.getElementById('gameTitle').textContent = 'Game Not Found';
+        document.getElementById('gameDescription').textContent = 'Sorry, we could not find this game. It may have been removed or the link is incorrect.';
+        document.getElementById('gameLoading').innerHTML = '<span style="color: #e17055; font-size: 1.1rem;">Game not found</span>';
+        return;
+    }
+
+    // Update page info
+    document.title = `${game.title} - Play Free at GameZone`;
+    document.getElementById('gameTitle').textContent = game.title;
+    document.getElementById('gamePlays').textContent = game.plays || '-';
+    document.getElementById('gameRating').textContent = game.rating || '-';
+    document.getElementById('gameCategory').textContent = game.category.charAt(0).toUpperCase() + game.category.slice(1);
+    document.getElementById('gameDescription').textContent = game.description || 'No description available.';
+
+    // SEO: Update meta tags and OG for this specific game
+    const gameDesc = (game.description || 'Play ' + game.title + ' free online at GameZone! No downloads required.').substring(0, 200);
+    UI.updateMeta({
+        title: document.title,
+        description: gameDesc,
+        url: `https://gamezone.best/game.html?id=${encodeURIComponent(game.id)}`,
+        image: game.thumbnail || ''
+    });
+
+    // JSON-LD for this game
+    const gameJsonLd = {
+        "@context": "https://schema.org",
+        "@type": "VideoGame",
+        "name": game.title,
+        "description": gameDesc,
+        "genre": game.category.charAt(0).toUpperCase() + game.category.slice(1),
+        "gamePlatform": "HTML5",
+        "applicationCategory": "Game",
+        "operatingSystem": "Any",
+        "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "USD",
+            "availability": "https://schema.org/InStock"
+        },
+        "url": `https://gamezone.best/game.html?id=${encodeURIComponent(game.id)}`,
+        "image": game.thumbnail || '',
+        "aggregateRating": {
+            "@type": "AggregateRating",
+            "ratingValue": game.rating || 4,
+            "bestRating": 5,
+            "ratingCount": 1
+        }
+    };
+    let jsonLdScript = document.getElementById('gameJsonLd');
+    if (!jsonLdScript) {
+        jsonLdScript = document.createElement('script');
+        jsonLdScript.id = 'gameJsonLd';
+        jsonLdScript.type = 'application/ld+json';
+        document.head.appendChild(jsonLdScript);
+    }
+    jsonLdScript.textContent = JSON.stringify(gameJsonLd);
+
+    // Load more games for sidebar
+    const moreGames = GameStore.getRandom(6, gameId);
+    document.getElementById('moreGames').innerHTML = moreGames.map(UI.createMiniGameHTML).join('');
+
+    // Render game iframe
+    const container = document.getElementById('gameFrameContainer');
+    const loading = document.getElementById('gameLoading');
+    const fullscreenBtn = document.getElementById('fullscreenBtn');
+
+    // Remove any existing iframe (in case of re-render)
+    container.querySelectorAll('iframe').forEach(f => f.remove());
+
+    UI.renderGameIframe(container, game, { loadingEl: loading, fullscreenBtn: fullscreenBtn });
+
+    // Fullscreen
+    fullscreenBtn.addEventListener('click', () => {
+        UI.toggleFullscreen(container);
+    });
+});
+</script>
+
+</body>
+</html>
