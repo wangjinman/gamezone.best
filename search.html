@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Search Results - GameZone</title>
-    <meta name="description" content="Search free HTML5 games at GameZone!">
-    <meta name="robots" content="noindex">
+    <title>Search Games - GameZone | Find Free HTML5 Games</title>
+    <meta name="description" content="Search thousands of free HTML5 games at GameZone. Find action, puzzle, racing, casual games and more. Play instantly in your browser!">
+    <meta name="robots" content="index, follow">
     <meta name="google-site-verification" content="Bs-Qz9_WHTj0joycVSZZ78GpxAWXIDOVaXevH7TlIVE" />
     <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎮</text></svg>">
     <link rel="stylesheet" href="css/style.css">
@@ -46,12 +46,27 @@
 <!-- Search Results -->
 <div class="section">
     <div class="section-header">
-        <h2 class="section-title" id="searchTitle"><span class="emoji">🔍</span> Search Results</h2>
-        <span style="color: var(--text-dim); font-size: 0.9rem;" id="resultCount">0 results</span>
+        <h2 class="section-title" id="searchTitle"><span class="emoji">🔍</span> Search Games</h2>
+        <span style="color: var(--text-dim); font-size: 0.9rem;" id="resultCount">Type a keyword to find games</span>
     </div>
 
     <div class="game-grid" id="gameGrid">
         <!-- Populated by JS -->
+    </div>
+
+    <!-- Default content for crawlers and empty state -->
+    <div id="defaultContent">
+        <div class="no-results" style="padding: 40px 20px;">
+            <div class="emoji" style="font-size: 3rem;">🎮</div>
+            <h3>Find Your Favorite Games</h3>
+            <p style="max-width: 600px; margin: 0 auto 20px;">Search thousands of free HTML5 games by name, category, or keyword. Popular searches: action, puzzle, racing, casual, adventure.</p>
+            <div style="display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; margin-top: 20px;">
+                <a href="https://gamezone.best/category.html?cat=action" class="play-btn" style="display: inline-block;">Action Games</a>
+                <a href="https://gamezone.best/category.html?cat=puzzle" class="play-btn" style="display: inline-block;">Puzzle Games</a>
+                <a href="https://gamezone.best/category.html?cat=racing" class="play-btn" style="display: inline-block;">Racing Games</a>
+                <a href="https://gamezone.best/category.html?cat=casual" class="play-btn" style="display: inline-block;">Casual Games</a>
+            </div>
+        </div>
     </div>
 
     <div id="noResults" style="display: none;">
@@ -136,11 +151,13 @@ document.addEventListener('DOMContentLoaded', async () => {
 
         if (!query) {
             document.getElementById('gameGrid').innerHTML = '';
-            document.getElementById('resultCount').textContent = 'Enter a search term above';
-            document.getElementById('noResults').style.display = 'block';
+            document.getElementById('resultCount').textContent = 'Type a keyword to find games';
+            document.getElementById('defaultContent').style.display = 'block';
+            document.getElementById('noResults').style.display = 'none';
             return;
         }
 
+        document.getElementById('defaultContent').style.display = 'none';
         document.getElementById('searchQuery').textContent = query;
 
         const results = GameStore.search(query);
@@ -148,9 +165,11 @@ document.addEventListener('DOMContentLoaded', async () => {
 
         if (results.length === 0) {
             document.getElementById('gameGrid').innerHTML = '';
+            document.getElementById('defaultContent').style.display = 'none';
             document.getElementById('noResults').style.display = 'block';
         } else {
             document.getElementById('gameGrid').innerHTML = results.map(UI.createGameCardHTML).join('');
+            document.getElementById('defaultContent').style.display = 'none';
             document.getElementById('noResults').style.display = 'none';
         }
 

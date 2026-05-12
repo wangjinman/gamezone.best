@@ -81,6 +81,13 @@
     <priority>0.7</priority>
   </url>
 
+  <!-- Search Page -->
+  <url>
+    <loc>https://gamezone.best/search.html</loc>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+
   <!-- Info Pages -->
   <url>
     <loc>https://gamezone.best/about.html</loc>
