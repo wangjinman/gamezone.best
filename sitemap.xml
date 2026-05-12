@@ -1,9 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <!-- Homepage -->
   <url>
-    <loc>https://gamezone.best/index.html</loc>
+    <loc>https://gamezone.best/</loc>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
+  </url>
+
+  <!-- Game Directory Page (static, crawlable without JS) -->
+  <url>
+    <loc>https://gamezone.best/games-list.html</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <!-- Category Pages -->
+  <url>
+    <loc>https://gamezone.best/category.html?cat=all</loc>
+    <changefreq>daily</changefreq>
+    <priority>0.9</priority>
   </url>
   <url>
     <loc>https://gamezone.best/category.html?cat=action</loc>
@@ -18,7 +33,7 @@
   <url>
     <loc>https://gamezone.best/category.html?cat=racing</loc>
     <changefreq>daily</changefreq>
-    <priority>0.9</priority>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://gamezone.best/category.html?cat=casual</loc>
@@ -51,19 +66,31 @@
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://gamezone.best/category.html?cat=io</loc>
+    <loc>https://gamezone.best/category.html?cat=match3</loc>
     <changefreq>daily</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://gamezone.best/category.html?cat=all</loc>
+    <loc>https://gamezone.best/category.html?cat=bubble</loc>
     <changefreq>daily</changefreq>
-    <priority>0.8</priority>
+    <priority>0.7</priority>
   </url>
+  <url>
+    <loc>https://gamezone.best/category.html?cat=io</loc>
+    <changefreq>daily</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- Info Pages -->
   <url>
     <loc>https://gamezone.best/about.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://gamezone.best/contact.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.4</priority>
   </url>
   <url>
     <loc>https://gamezone.best/privacy.html</loc>
@@ -74,10 +101,5 @@
     <loc>https://gamezone.best/terms.html</loc>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
-  </url>
-  <url>
-    <loc>https://gamezone.best/contact.html</loc>
-    <changefreq>yearly</changefreq>
-    <priority>0.4</priority>
   </url>
 </urlset>
