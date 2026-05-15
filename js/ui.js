@@ -16,7 +16,7 @@ const UI = (() => {
         const thumbSrc = game.thumbnail || game.thumbnailSmall || '';
 
         return `
-            <a href="${SITE_BASE}/game.html?id=${encodeURIComponent(game.id)}" class="game-card">
+            <a href="${SITE_BASE}/game?id=${encodeURIComponent(game.id)}" class="game-card">
                 <div class="game-thumb">
                     <img src="${thumbSrc}" alt="${escapeHTML(game.title)}" loading="lazy"
                          onerror="this.style.display='none'; this.parentElement.style.background='linear-gradient(135deg, #1a1a3e, #2d1b69)';">
@@ -38,7 +38,7 @@ const UI = (() => {
         const thumbSrc = game.thumbnail || game.thumbnailSmall || '';
 
         return `
-            <a href="${SITE_BASE}/game.html?id=${encodeURIComponent(game.id)}" class="featured-card">
+            <a href="${SITE_BASE}/game?id=${encodeURIComponent(game.id)}" class="featured-card">
                 <div class="game-thumb">
                     <img src="${thumbSrc}" alt="${escapeHTML(game.title)}" loading="lazy"
                          onerror="this.style.display='none'; this.parentElement.style.background='linear-gradient(135deg, #1a1a3e, #2d1b69)';">
@@ -62,7 +62,7 @@ const UI = (() => {
         const thumbSrc = game.thumbnailSmall || game.thumbnail || '';
 
         return `
-            <a href="${SITE_BASE}/game.html?id=${encodeURIComponent(game.id)}" class="mini-game">
+            <a href="${SITE_BASE}/game?id=${encodeURIComponent(game.id)}" class="mini-game">
                 <img src="${thumbSrc}" alt="${escapeHTML(game.title)}" class="mini-game-thumb" loading="lazy"
                      onerror="this.background='var(--bg-card-hover)';">
                 <div class="mini-game-info">
@@ -78,7 +78,7 @@ const UI = (() => {
     function createCategoryNavHTML(categories, activeCat = 'all') {
         if (!categories || categories.length === 0) return '';
         return categories.map(cat =>
-            `<a href="${SITE_BASE}/category.html?cat=${cat.id}" class="${cat.id === activeCat ? 'active' : ''}">${cat.emoji} ${cat.name}</a>`
+            `<a href="${SITE_BASE}/category?cat=${cat.id}" class="${cat.id === activeCat ? 'active' : ''}">${cat.emoji} ${cat.name}</a>`
         ).join('');
     }
 
@@ -239,7 +239,7 @@ const UI = (() => {
                 if (e.key === 'Enter') {
                     const query = searchInput.value.trim();
                     if (query) {
-                        window.location.href = `${SITE_BASE}/search.html?q=${encodeURIComponent(query)}`;
+                        window.location.href = `${SITE_BASE}/search?q=${encodeURIComponent(query)}`;
                     }
                 }
             });
