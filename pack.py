@@ -10,7 +10,7 @@ SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
 PROJECT_ROOT = os.path.dirname(SCRIPT_DIR)
 
 # 版本号：每次打包手动递增
-VERSION = "2.0.5"
+VERSION = "2.0.9"
 
 DST = os.path.join(PROJECT_ROOT, f'gamezone-best-deploy-v{VERSION}.zip')
 
@@ -26,6 +26,8 @@ FILES = [
 ]
 
 # --- 变更记录 ---
+# v2.0.7 - 修复手机端全屏按钮失效（webkit 前缀兼容 + CSS 模拟全屏降级方案）
+# v2.0.6 - sitemap.xml 去 .html 后缀（修复 Search Console 重定向错误）
 # v2.0.5 - 全站链接去 .html 后缀（canonical/og:url/内部链接/JS 统一无后缀格式）
 # v2.0.4 - 修复 search.html 软404（添加默认内容）、noindex 修复（game.html/search.html）
 # v2.0.3 - SEO Phase 2: JSON-LD、games-list.html、Footer 12分类、sitemap 更新

@@ -9,103 +9,103 @@
 
   <!-- Game Directory Page (static, crawlable without JS) -->
   <url>
-    <loc>https://gamezone.best/games-list.html</loc>
+    <loc>https://gamezone.best/games-list</loc>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
 
   <!-- Category Pages -->
   <url>
-    <loc>https://gamezone.best/category.html?cat=all</loc>
+    <loc>https://gamezone.best/category?cat=all</loc>
     <changefreq>daily</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://gamezone.best/category.html?cat=action</loc>
+    <loc>https://gamezone.best/category?cat=action</loc>
     <changefreq>daily</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://gamezone.best/category.html?cat=puzzle</loc>
+    <loc>https://gamezone.best/category?cat=puzzle</loc>
     <changefreq>daily</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://gamezone.best/category.html?cat=racing</loc>
+    <loc>https://gamezone.best/category?cat=racing</loc>
     <changefreq>daily</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://gamezone.best/category.html?cat=casual</loc>
+    <loc>https://gamezone.best/category?cat=casual</loc>
     <changefreq>daily</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://gamezone.best/category.html?cat=sports</loc>
+    <loc>https://gamezone.best/category?cat=sports</loc>
     <changefreq>daily</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://gamezone.best/category.html?cat=adventure</loc>
+    <loc>https://gamezone.best/category?cat=adventure</loc>
     <changefreq>daily</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://gamezone.best/category.html?cat=shooter</loc>
+    <loc>https://gamezone.best/category?cat=shooter</loc>
     <changefreq>daily</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://gamezone.best/category.html?cat=simulation</loc>
+    <loc>https://gamezone.best/category?cat=simulation</loc>
     <changefreq>daily</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://gamezone.best/category.html?cat=strategy</loc>
+    <loc>https://gamezone.best/category?cat=strategy</loc>
     <changefreq>daily</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://gamezone.best/category.html?cat=match3</loc>
+    <loc>https://gamezone.best/category?cat=match3</loc>
     <changefreq>daily</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://gamezone.best/category.html?cat=bubble</loc>
+    <loc>https://gamezone.best/category?cat=bubble</loc>
     <changefreq>daily</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://gamezone.best/category.html?cat=io</loc>
+    <loc>https://gamezone.best/category?cat=io</loc>
     <changefreq>daily</changefreq>
     <priority>0.7</priority>
   </url>
 
   <!-- Search Page -->
   <url>
-    <loc>https://gamezone.best/search.html</loc>
+    <loc>https://gamezone.best/search</loc>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
 
   <!-- Info Pages -->
   <url>
-    <loc>https://gamezone.best/about.html</loc>
+    <loc>https://gamezone.best/about</loc>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://gamezone.best/contact.html</loc>
+    <loc>https://gamezone.best/contact</loc>
     <changefreq>yearly</changefreq>
     <priority>0.4</priority>
   </url>
   <url>
-    <loc>https://gamezone.best/privacy.html</loc>
+    <loc>https://gamezone.best/privacy</loc>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>
   <url>
-    <loc>https://gamezone.best/terms.html</loc>
+    <loc>https://gamezone.best/terms</loc>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>

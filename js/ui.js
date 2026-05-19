@@ -214,11 +214,64 @@ const UI = (() => {
         return div.innerHTML;
     }
 
+    function _requestFullscreen(el) {
+        if (el.requestFullscreen) return el.requestFullscreen();
+        if (el.webkitRequestFullscreen) return el.webkitRequestFullscreen();
+        if (el.msRequestFullscreen) return el.msRequestFullscreen();
+        return Promise.reject(new Error('Fullscreen API not supported'));
+    }
+
+    function _exitFullscreen() {
+        if (document.exitFullscreen) return document.exitFullscreen();
+        if (document.webkitExitFullscreen) return document.webkitExitFullscreen();
+        if (document.msExitFullscreen) return document.msExitFullscreen();
+        return Promise.reject(new Error('Exit fullscreen not supported'));
+    }
+
+    function _getFullscreenElement() {
+        return document.fullscreenElement || document.webkitFullscreenElement || document.msFullscreenElement;
+    }
+
+    // CSS simulated fullscreen (fallback for mobile browsers where native fullscreen fails)
+    function _enterCSSFullscreen(container) {
+        document.body.classList.add('css-fullscreen-active');
+        container.classList.add('css-fullscreen');
+        document.addEventListener('fullscreenchange', _watchNativeExit);
+        document.addEventListener('webkitfullscreenchange', _watchNativeExit);
+    }
+
+    function _exitCSSFullscreen(container) {
+        document.body.classList.remove('css-fullscreen-active');
+        container.classList.remove('css-fullscreen');
+        document.removeEventListener('fullscreenchange', _watchNativeExit);
+        document.removeEventListener('webkitfullscreenchange', _watchNativeExit);
+    }
+
+    function _watchNativeExit() {
+        // When native fullscreen exits (user pressed Esc), clean up CSS state too
+        const container = document.querySelector('.game-frame-container.css-fullscreen');
+        if (container && !_getFullscreenElement()) {
+            _exitCSSFullscreen(container);
+        }
+    }
+
     function toggleFullscreen(element) {
-        if (!document.fullscreenElement) {
-            element.requestFullscreen().catch(err => console.log('Fullscreen error:', err));
+        if (_getFullscreenElement()) {
+            // Currently fullscreen — exit
+            _exitCSSFullscreen(element);
+            _exitFullscreen().catch(() => {});
         } else {
-            document.exitFullscreen();
+            // Try native fullscreen first, fallback to CSS simulation
+            _requestFullscreen(element)
+                .then(() => {
+                    // Native fullscreen succeeded — also add CSS class for extra styling
+                    element.classList.add('css-fullscreen');
+                    document.body.classList.add('css-fullscreen-active');
+                })
+                .catch(() => {
+                    // Native not available or rejected — use CSS simulation
+                    _enterCSSFullscreen(element);
+                });
         }
     }
 

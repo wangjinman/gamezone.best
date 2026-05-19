@@ -673,11 +673,50 @@ img {
     background: var(--primary);
 }
 
+/* CSS Simulated Fullscreen (fallback for mobile) */
+.css-fullscreen-active {
+    overflow: hidden !important;
+}
+
+.css-fullscreen-active .header,
+.css-fullscreen-active .game-page-header,
+.css-fullscreen-active .game-page-info,
+.css-fullscreen-active .footer {
+    display: none !important;
+}
+
+.css-fullscreen-active .game-page {
+    padding: 0 !important;
+    margin: 0 !important;
+    max-width: 100% !important;
+}
+
+.css-fullscreen {
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 100vw !important;
+    width: 100dvw !important;
+    height: 100vh !important;
+    height: 100dvh !important;
+    z-index: 99999 !important;
+    border-radius: 0 !important;
+    border: none !important;
+    aspect-ratio: auto !important;
+}
+
+.css-fullscreen .fullscreen-btn {
+    top: 8px;
+    right: 8px;
+    z-index: 100000;
+    background: rgba(0, 0, 0, 0.85);
+}
+
 /* ============================================
    Skeleton Loading
    ============================================ */
 .skeleton-pulse {
-    background: linear-gradient(90deg, var(--bg-card) 25%, var(--bg-card-hover) 50%, var(--bg-card) 75%);
+    background: linear-gradient(90deg, var(--bg-card) 25%, var(--bg-card-hover) 50%, var(--bg-card) 25%);
     background-size: 200% 100%;
     animation: skeletonPulse 1.5s ease-in-out infinite;
     border-radius: 4px;

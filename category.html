@@ -3,22 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Game Category - GameZone</title>
-    <meta name="description" content="Browse free HTML5 games by category at GameZone! Action, puzzle, racing, sports and more. No downloads required.">
+    <title>Free Online Games by Category — GameZone</title>
+    <meta name="description" content="Browse 1000+ free HTML5 games by category. Action, match-3, puzzle, racing, sports, shooter and more. No downloads required — play instantly!">
     <meta name="google-site-verification" content="Bs-Qz9_WHTj0joycVSZZ78GpxAWXIDOVaXevH7TlIVE" />
     <link id="canonicalTag" rel="canonical" href="https://gamezone.best/category">
     <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎮</text></svg>">
     <!-- Open Graph -->
     <meta property="og:type" content="website">
-    <meta property="og:title" content="Browse Games by Category - GameZone">
-    <meta property="og:description" content="Browse free HTML5 games by category at GameZone! Action, puzzle, racing, sports and more. No downloads required.">
+    <meta property="og:title" content="Free Online Games by Category — GameZone">
+    <meta property="og:description" content="Browse 1000+ free HTML5 games by category. Action, match-3, puzzle, racing, sports and more. No downloads required — play instantly!">
     <meta property="og:url" content="https://gamezone.best/category">
     <meta property="og:site_name" content="GameZone">
     <meta property="og:image" content="https://gamezone.best/og-image.png">
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Browse Games by Category - GameZone">
-    <meta name="twitter:description" content="Browse free HTML5 games by category at GameZone! Action, puzzle, racing, sports and more.">
+    <meta name="twitter:title" content="Free Online Games by Category — GameZone">
+    <meta name="twitter:description" content="Browse 1000+ free HTML5 games. Action, match-3, puzzle, racing and more. No downloads — play instantly!">
     <link rel="stylesheet" href="css/style.css">
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4380214325215724" crossorigin="anonymous"></script>
     <!-- Google Analytics 4 -->
@@ -70,6 +70,10 @@
     <p style="color: var(--text-dim); max-width: 700px; margin: 0 auto 24px; line-height: 1.6; font-size: 0.95rem;" id="categoryDesc">
         Browse our collection of free HTML5 games. No downloads or installs needed — just click and play directly in your browser. We add new games regularly, so check back often for the latest titles!
     </p>
+
+    <!-- Category Intro (populated by JS for SEO) -->
+    <div id="categoryIntro" style="display:none; max-width:800px; margin:0 auto 28px; padding:20px; background:var(--bg-secondary); border-radius:var(--radius-lg); border:0.5px solid var(--border-tertiary); text-align:left; line-height:1.8; font-size:0.95rem; color:var(--text-primary);">
+    </div>
 
     <!-- Game Grid -->
     <div class="game-grid" id="gameGrid">
@@ -232,12 +236,34 @@ document.addEventListener('DOMContentLoaded', async () => {
         'shooter': 'Test your aim with free online shooter games! FPS, sniper, tank battles and more. No downloads needed.',
         'simulation': 'Build and manage with free simulation games! Tycoon, farming, cooking and more. Play instantly.',
         'strategy': 'Plan your victory with free strategy games! Tower defense, chess, board games and more.',
+        'match3': 'Play free match-3 games online — no download, no registration! Swap, match and crush gems in hundreds of addictive levels. Play instantly in your browser!',
+        'bubble': 'Pop bubbles in free online bubble shooter games! Classic arcade fun — no download required. Play now!',
         'io': 'Compete against players worldwide in free .io games! Real-time multiplayer — no downloads required.',
-        'all': 'Browse our complete collection of free HTML5 games. Hundreds of titles across all categories — no downloads, just play!'
+        'all': 'Browse our complete collection of 1000+ free HTML5 games. Hundreds of titles across all categories — no downloads, just play!'
     };
+    // Category-specific title overrides for high-value SEO keywords
+    const catTitles = {
+        'match3': 'Free Match 3 Games Online — No Download | GameZone',
+        'bubble': 'Free Bubble Shooter Games Online — Play Now | GameZone'
+    };
+    // Category intro content for SEO (rich text with long-tail keywords)
+    const categoryIntroContent = {
+        'match3': '<h3 style="margin:0 0 12px 0; font-size:1.1rem; color:var(--text-primary);">🎮 Free Match-3 Games Online — No Download Required</h3><p style="margin:0 0 12px 0; line-height:1.8;">Match-3 games are one of the most popular casual game genres worldwide. On GameZone you can play hundreds of match-3 games online for free — no download, no registration, no install. Just click and play! Swap gems, candies, or bubbles to make matches of 3 or more and clear the board. Popular mechanics include <strong>bejeweled-style swapping</strong>, <strong>match-3 puzzle solving</strong>, and <strong>candy crush style levels</strong>. All games run directly in your browser on desktop, tablet, and mobile.</p><p style="margin:0; line-height:1.8; color:var(--text-secondary); font-size:0.9rem;">📌 Keywords: free match 3 games online, match 3 no download, play match 3 free, online puzzle games, browser match3 games</p>',
+        'bubble': '<h3 style="margin:0 0 12px 0; font-size:1.1rem; color:var(--text-primary);">🫧 Free Bubble Shooter Games Online</h3><p style="margin:0 0 12px 0; line-height:1.8;">Bubble shooter games are a timeless classic! Aim, shoot, and pop colorful bubbles to clear the board. No download required — play free in your browser instantly. Our bubble shooter collection includes classic arcade style, puzzle bubble challenges, and power-up bubble pop games. Works on all devices including mobile and tablet. Click any game above to start playing now!</p><p style="margin:0; line-height:1.8; color:var(--text-secondary); font-size:0.9rem;">📌 Keywords: free bubble shooter online, play bubble pop games, no download bubble games, browser bubble shooter</p>',
+        'action': '<h3 style="margin:0 0 12px 0; font-size:1.1rem; color:var(--text-primary);">⚔️ Free Action Games Online</h3><p style="margin:0 0 12px 0; line-height:1.8;">Get your adrenaline pumping with our free action games! No download required — play fighting games, shooting games, platformers, and more directly in your browser. Action games are perfect for quick gaming sessions during breaks. All games are HTML5-based and run on any device. Click and play instantly!</p><p style="margin:0; line-height:1.8; color:var(--text-secondary); font-size:0.9rem;">📌 Keywords: free action games online, play shooter games, no download action games, browser fighting games</p>',
+        'puzzle': '<h3 style="margin:0 0 12px 0; font-size:1.1rem; color:var(--text-primary);">🧩 Free Puzzle Games Online</h3><p style="margin:0 0 12px 0; line-height:1.8;">Challenge your brain with our free puzzle games! From match-3 to sudoku, jigsaw to escape room — no download required. All puzzle games run directly in your browser. Perfect for relaxing breaks or training your brain. New puzzle games added regularly!</p><p style="margin:0; line-height:1.8; color:var(--text-secondary); font-size:0.9rem;">📌 Keywords: free puzzle games online, play sudoku free, no download puzzle games, browser brain games</p>'
+    };
+    // Show category intro if available
+    const introEl = document.getElementById('categoryIntro');
+    if (introEl && categoryIntroContent[cat]) {
+        introEl.innerHTML = categoryIntroContent[cat];
+        introEl.style.display = 'block';
+    }
+    const catName = cat === 'all' ? '' : cat.charAt(0).toUpperCase() + cat.slice(1) + ' ';
+    const title = catTitles[cat] || `Free ${catName}Games Online — No Download | GameZone`;
     const desc = catDescriptions[cat] || catDescriptions['all'];
-    document.title = `Free ${cat === 'all' ? '' : cat.charAt(0).toUpperCase() + cat.slice(1) + ' '}Games Online - GameZone`;
-    UI.updateMeta({ title: document.title, description: desc, url: `https://gamezone.best/category?cat=${cat}` });
+    document.title = title;
+    UI.updateMeta({ title: title, description: desc, url: `https://gamezone.best/category?cat=${cat}` });
 });
 </script>
 
