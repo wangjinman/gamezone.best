@@ -9,7 +9,7 @@ const GameStore = (() => {
     let isLoading = false;
     let hasMore = true;
     let sources = [];
-    const PAGINATION = 12;
+    const PAGINATION = 24;
 
     // Built-in category list with emojis
     const DEFAULT_CATEGORIES = [

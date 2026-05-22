@@ -45,6 +45,7 @@
             <li><a href="https://gamezone.best/category?cat=puzzle">Puzzle</a></li>
             <li><a href="https://gamezone.best/category?cat=racing">Racing</a></li>
             <li><a href="https://gamezone.best/category?cat=casual">Casual</a></li>
+            <li><a href="https://gamezone.best/blog">Blog</a></li>
         </ul>
         <div class="search-box">
             <span class="search-icon">🔍</span>
@@ -160,7 +161,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 
     try {
         // Load first 5 pages
-        for (let i = 1; i <= 5; i++) {
+        for (let i = 1; i <= 3; i++) {
             await GameStore.loadPage(i);
         }
 

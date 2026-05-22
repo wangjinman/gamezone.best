@@ -47,6 +47,7 @@
             <li><a href="https://gamezone.best/category?cat=puzzle">Puzzle</a></li>
             <li><a href="https://gamezone.best/category?cat=racing">Racing</a></li>
             <li><a href="https://gamezone.best/category?cat=casual">Casual</a></li>
+            <li><a href="https://gamezone.best/blog">Blog</a></li>
         </ul>
         <div class="search-box">
             <span class="search-icon">🔍</span>
@@ -137,6 +138,50 @@
     </div>
 </div>
 
+<!-- Racing Games -->
+<div class="section">
+    <div class="section-header">
+        <h2 class="section-title"><span class="emoji">🏎️</span> Racing Games</h2>
+        <a href="https://gamezone.best/category?cat=racing" class="view-more">View All →</a>
+    </div>
+    <div class="game-grid" id="racingGames">
+        <!-- Populated by JS -->
+    </div>
+</div>
+
+<!-- Adventure Games -->
+<div class="section">
+    <div class="section-header">
+        <h2 class="section-title"><span class="emoji">🗺️</span> Adventure Games</h2>
+        <a href="https://gamezone.best/category?cat=adventure" class="view-more">View All →</a>
+    </div>
+    <div class="game-grid" id="adventureGames">
+        <!-- Populated by JS -->
+    </div>
+</div>
+
+<!-- Casual Games -->
+<div class="section">
+    <div class="section-header">
+        <h2 class="section-title"><span class="emoji">☕</span> Casual Games</h2>
+        <a href="https://gamezone.best/category?cat=casual" class="view-more">View All →</a>
+    </div>
+    <div class="game-grid" id="casualGames">
+        <!-- Populated by JS -->
+    </div>
+</div>
+
+<!-- Sports Games -->
+<div class="section">
+    <div class="section-header">
+        <h2 class="section-title"><span class="emoji">⚽</span> Sports Games</h2>
+        <a href="https://gamezone.best/category?cat=sports" class="view-more">View All →</a>
+    </div>
+    <div class="game-grid" id="sportsGames">
+        <!-- Populated by JS -->
+    </div>
+</div>
+
 <!-- Footer -->
 <footer class="footer">
     <div class="footer-content">
@@ -198,10 +243,14 @@ document.addEventListener('DOMContentLoaded', async () => {
     document.getElementById('newGames').innerHTML = skeletonHTML;
     document.getElementById('actionGames').innerHTML = skeletonHTML;
     document.getElementById('puzzleGames').innerHTML = skeletonHTML;
+    document.getElementById('racingGames').innerHTML = skeletonHTML;
+    document.getElementById('adventureGames').innerHTML = skeletonHTML;
+    document.getElementById('casualGames').innerHTML = skeletonHTML;
+    document.getElementById('sportsGames').innerHTML = skeletonHTML;
 
     try {
-        // Load first 5 pages for enough data across all categories
-        for (let i = 1; i <= 5; i++) {
+        // Load first 3 pages for enough data across all categories (24 per page = 72 total)
+        for (let i = 1; i <= 3; i++) {
             await GameStore.loadPage(i);
         }
 
@@ -232,6 +281,27 @@ document.addEventListener('DOMContentLoaded', async () => {
         document.getElementById('puzzleGames').innerHTML = puzzleGames.length > 0
             ? puzzleGames.map(UI.createGameCardHTML).join('')
             : '<p style="color: var(--text-dim); grid-column: 1/-1;">No puzzle games loaded yet.</p>';
+
+        // More category sections
+        const racingGames = GameStore.getByCategory('racing').slice(0, 8);
+        document.getElementById('racingGames').innerHTML = racingGames.length > 0
+            ? racingGames.map(UI.createGameCardHTML).join('')
+            : '';
+
+        const adventureGames = GameStore.getByCategory('adventure').slice(0, 8);
+        document.getElementById('adventureGames').innerHTML = adventureGames.length > 0
+            ? adventureGames.map(UI.createGameCardHTML).join('')
+            : '';
+
+        const casualGames = GameStore.getByCategory('casual').slice(0, 8);
+        document.getElementById('casualGames').innerHTML = casualGames.length > 0
+            ? casualGames.map(UI.createGameCardHTML).join('')
+            : '';
+
+        const sportsGames = GameStore.getByCategory('sports').slice(0, 8);
+        document.getElementById('sportsGames').innerHTML = sportsGames.length > 0
+            ? sportsGames.map(UI.createGameCardHTML).join('')
+            : '';
 
         // Update hero game count
         document.getElementById('heroGameCount').textContent = GameStore.getTotalCount() + '+';

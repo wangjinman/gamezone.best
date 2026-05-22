@@ -5,7 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Search Games - GameZone | Find Free HTML5 Games</title>
     <meta name="description" content="Search thousands of free HTML5 games at GameZone. Find action, puzzle, racing, casual games and more. Play instantly in your browser!">
-    <meta name="robots" content="index, follow">
+    <meta name="robots" content="noindex">
+    <!-- robots updated to "index, follow" by JS when search returns results -->
     <meta name="google-site-verification" content="Bs-Qz9_WHTj0joycVSZZ78GpxAWXIDOVaXevH7TlIVE" />
     <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎮</text></svg>">
     <link rel="stylesheet" href="css/style.css">
@@ -34,6 +35,7 @@
             <li><a href="https://gamezone.best/category?cat=puzzle">Puzzle</a></li>
             <li><a href="https://gamezone.best/category?cat=racing">Racing</a></li>
             <li><a href="https://gamezone.best/category?cat=casual">Casual</a></li>
+            <li><a href="https://gamezone.best/blog">Blog</a></li>
         </ul>
         <div class="search-box">
             <span class="search-icon">🔍</span>
@@ -150,6 +152,8 @@ document.addEventListener('DOMContentLoaded', async () => {
         }
 
         if (!query) {
+            // Soft 404 — no search query, inject noindex
+            UI.setMetaRobots('noindex');
             document.getElementById('gameGrid').innerHTML = '';
             document.getElementById('resultCount').textContent = 'Type a keyword to find games';
             document.getElementById('defaultContent').style.display = 'block';
@@ -164,10 +168,13 @@ document.addEventListener('DOMContentLoaded', async () => {
         document.getElementById('resultCount').textContent = results.length + ' results';
 
         if (results.length === 0) {
+            // No results → keep noindex (already set by default)
             document.getElementById('gameGrid').innerHTML = '';
             document.getElementById('defaultContent').style.display = 'none';
             document.getElementById('noResults').style.display = 'block';
         } else {
+            // Valid results → allow indexing
+            UI.setMetaRobots('index, follow');
             document.getElementById('gameGrid').innerHTML = results.map(UI.createGameCardHTML).join('');
             document.getElementById('defaultContent').style.display = 'none';
             document.getElementById('noResults').style.display = 'none';

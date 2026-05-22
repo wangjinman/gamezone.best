@@ -299,6 +299,21 @@ const UI = (() => {
         }
     }
 
+    /**
+     * Set robots meta tag (e.g., "noindex" for soft-404 pages).
+     * Creates or updates the <meta name="robots"> tag dynamically.
+     * @param {string} content - Robots directive, e.g. "noindex" or "index, follow"
+     */
+    function setMetaRobots(content) {
+        let el = document.querySelector('meta[name="robots"]');
+        if (!el) {
+            el = document.createElement('meta');
+            el.setAttribute('name', 'robots');
+            document.head.appendChild(el);
+        }
+        el.setAttribute('content', content);
+    }
+
     return {
         createGameCardHTML,
         createFeaturedCardHTML,
@@ -311,6 +326,7 @@ const UI = (() => {
         initMobileMenu,
         initSearch,
         updateMeta,
+        setMetaRobots,
         escapeHTML,
         SITE_BASE
     };

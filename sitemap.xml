@@ -81,11 +81,31 @@
     <priority>0.7</priority>
   </url>
 
-  <!-- Search Page -->
+  <!-- Blog Pages -->
   <url>
-    <loc>https://gamezone.best/search</loc>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
+    <loc>https://gamezone.best/blog</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://gamezone.best/article-best-free-browser-games</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://gamezone.best/article-match3-tips-strategies</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://gamezone.best/article-top-action-games-2026</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://gamezone.best/article-unblocked-games-guide</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
   </url>
 
   <!-- Info Pages -->
